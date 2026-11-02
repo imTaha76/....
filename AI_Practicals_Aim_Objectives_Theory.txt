@@ -1,0 +1,112 @@
+ARTIFICIAL INTELLIGENCE LAB — AIMS, OBJECTIVES AND THEORY
+
+PRACTICAL 1 — SIMPLE REFLEX AGENT FOR VACUUM CLEANER WORLD
+Aim:
+Design and implement a simple reflex agent for the Vacuum Cleaner world and analyze its rational behavior in a given environment.
+
+Objectives:
+1. Represent the environment using locations A and B, each having a Clean or Dirty status.
+2. Apply condition-action rules based only on the agent's current location and the current square's status.
+3. Make the agent suck when the current location is dirty and move to the other location when it is clean.
+4. Observe the agent's actions for different location and status combinations.
+
+Theory:
+A simple reflex agent selects an action using only the current percept. In this problem, the percept consists of the agent's location and the cleanliness status of that location. If the current square is dirty, the agent performs Suck; otherwise, it moves to the other location. The agent does not store past percepts or maintain an internal model of the environment.
+
+
+PRACTICAL 2 — BREADTH FIRST SEARCH FOR 8-PUZZLE
+Aim:
+Implement Breadth First Search (BFS) to find a path from the given initial 8-puzzle state to the goal state.
+
+Objectives:
+1. Represent the 8-puzzle as a 3 × 3 board with 0 representing the blank tile.
+2. Generate valid states by moving the blank tile up, down, left, or right.
+3. Use a FIFO queue to explore states level by level.
+4. Maintain visited states and parent information to avoid repetition and reconstruct the solution path.
+
+Theory:
+Breadth First Search is an uninformed search algorithm that explores the state space level by level. It uses a FIFO queue: the earliest inserted state is expanded first. For the 8-puzzle, each state is a board configuration and each legal blank-tile movement produces a neighboring state. A visited collection prevents repeated exploration, while parent information is used to reconstruct the path. When every move has equal cost, BFS finds a solution with the minimum number of moves.
+
+
+PRACTICAL 3 — DEPTH FIRST SEARCH FOR WATER JUG PROBLEM
+Aim:
+Implement Depth First Search (DFS) to solve the Water Jug problem using two jugs of capacities 3 litres and 5 litres to obtain 4 litres of water.
+
+Objectives:
+1. Represent a state as the amount of water in Jug 1 and Jug 2.
+2. Generate states by filling, emptying, and pouring water between the jugs.
+3. Use DFS recursion to explore possible states.
+4. Maintain a visited set to avoid cycles and use backtracking when a path fails.
+
+Theory:
+Depth First Search explores one branch of the state space as deeply as possible before backtracking. A state is represented by the current water quantities in the two jugs. The available operations are filling a jug, emptying a jug, and pouring water from one jug into the other without exceeding capacity. A visited set prevents cycles, and the goal is reached when either jug contains 4 litres. DFS does not guarantee the shortest solution path.
+
+
+PRACTICAL 4 — BACKTRACKING FOR 8-QUEENS PROBLEM
+Aim:
+Implement Backtracking search to place eight queens on an 8 × 8 chessboard so that no two queens attack each other.
+
+Objectives:
+1. Represent the chessboard using an 8 × 8 matrix.
+2. Place one queen in each row.
+3. Check the same column and both upper diagonals before placing a queen.
+4. Backtrack by removing a queen when the current choice prevents a complete solution.
+
+Theory:
+Backtracking is a search technique that builds a solution incrementally and abandons a partial solution when it violates the constraints. In the 8-Queens problem, one queen is placed in each row. Before placing a queen, the algorithm checks whether another queen exists in the same column or either diagonal. If no safe position leads to a complete arrangement, it removes the previously placed queen and tries another column.
+
+
+PRACTICAL 5 — RULE-BASED CHATBOT USING PATTERN MATCHING
+Aim:
+Develop a simple rule-based chatbot that identifies user intents using predefined patterns and responds with predefined messages.
+
+Objectives:
+1. Define intents with associated input patterns and response arrays.
+2. Preprocess input by converting it to lowercase and removing punctuation.
+3. Match words in the user's input against predefined pattern words.
+4. Select a response randomly from the matched intent and continue chatting until the user enters bye.
+
+Theory:
+A rule-based chatbot uses predefined patterns and responses rather than training a machine-learning model. The user's input is normalized by converting it to lowercase and removing punctuation. The program checks the input against stored patterns and selects a response associated with the first matching pattern. If no pattern matches, it displays a default response. The conversation continues until the user types bye.
+
+
+ASSIGNMENT 2 — A* SEARCH FOR 8-PUZZLE
+Aim:
+Implement the A* search algorithm to solve the 8-puzzle problem using a heuristic function.
+
+Objectives:
+1. Represent each board configuration as a search state.
+2. Calculate path cost g(n) and heuristic cost h(n).
+3. Use f(n) = g(n) + h(n) to prioritize states in a priority queue.
+4. Use Manhattan distance as the heuristic and reconstruct the path from the goal node to the start node.
+
+Theory:
+A* is an informed search algorithm that evaluates a state using f(n) = g(n) + h(n). Here, g(n) is the cost of the path from the start state and h(n) estimates the remaining cost to the goal. The Manhattan-distance heuristic adds the row and column distances of each numbered tile from its goal position; the blank tile is excluded. A priority queue expands the state with the lowest estimated total cost. Parent links allow the solution path to be reconstructed.
+
+
+ASSIGNMENT 3 — TOWER OF HANOI USING BFS / STATE-SPACE SEARCH
+Aim:
+Solve the Tower of Hanoi problem using Breadth First Search over the state space.
+
+Objectives:
+1. Represent the contents of the three towers as a state.
+2. Generate legal moves by moving only the top disk of a non-empty tower.
+3. Prevent placing a larger disk on top of a smaller disk.
+4. Use BFS and a visited set to find a shortest sequence of legal moves from the initial state to the goal state.
+
+Theory:
+The Tower of Hanoi can be represented as a state-space search problem. Each state records which disks are on each of the three towers. A legal move transfers only the top disk of one tower to another tower, and a larger disk must never be placed on a smaller disk. BFS explores states level by level, while a visited set avoids revisiting configurations. Since each move has equal cost, BFS finds a shortest sequence of legal moves. The supplied Java program uses three disks and moves all of them to Tower 3.
+
+
+ASSIGNMENT 4 — LOCAL BEAM SEARCH FOR TRAVELLING SALESMAN PROBLEM
+Aim:
+Implement Local Beam Search to find a low-cost tour for the Traveling Salesman Problem (TSP).
+
+Objectives:
+1. Represent a tour as an ordered list of cities.
+2. Calculate the total tour cost, including the return to the starting city.
+3. Generate neighboring tours by swapping two cities while keeping the starting city fixed.
+4. Retain the best k candidate tours at each iteration and report the best tour found.
+
+Theory:
+Local Beam Search is a heuristic search method that maintains multiple candidate states, called a beam, rather than exploring only one state at a time. In this TSP implementation, a tour is an ordered list of four cities and its cost includes the return to the starting city. Neighboring tours are generated by swapping two city positions while keeping city 0 fixed. At each iteration, candidate tours are sorted by cost and only the best k tours are retained. This is a heuristic method and is not guaranteed to find the global optimum for every problem instance.
